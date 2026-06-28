@@ -1,0 +1,152 @@
+{
+  "prefecture": "Kagoshima",
+  "prefecture_ja": "鹿児島県",
+  "region": "Kyushu",
+  "our_story": "Our home prefecture — where the challenge begins. Alan lives here and Ai visits, so Kagoshima is our most intimately known stop. Buried in volcanic sand at Ibusuki, stood in silence at the Shimazu clan graves, and spent evenings going deep into Kagoshima shochu at Wasou. Home is never boring.",
+  "our_story_ja": "チャレンジのスタート地点、そして私たちのホーム。アランが暮らし、愛が訪れる鹿児島は最もよく知る場所。指宿では砂むしを体験し、福昌寺跡では島津家墓所に向き合い、和奏では本格焼酎の奥深さに浸りました。ホームは決して飽きない。",
+  "visits": [
+    {
+      "date": "2025-12",
+      "season": "winter",
+      "hero_photo": null
+    },
+    {
+      "date": "2026-06",
+      "season": "summer",
+      "hero_photo": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/ibusuki-saraku.jpg"
+    }
+  ],
+  "entries": [
+    {
+      "id": "ibusuki-saraku-sand-baths",
+      "type": "experience",
+      "name": "Ibusuki Saraku — Natural Sand Baths",
+      "name_ja": "指宿砂むし温泉 砂楽",
+      "location": "Ibusuki, Kagoshima (1-25 Yunohama, Ibusuki-shi)",
+      "date": "2025-12-22",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "An unforgettable experience — buried up to our necks in natural volcanic sand on the beach. The sand sits at around 50–55°C heated by geothermal springs underneath. You wear a blue yukata, staff shovel warm sand over you, and you stay in for about 10 minutes. The sign above reads 'Ojattamonse' — Kagoshima dialect for welcome!",
+      "our_notes_ja": "首まで砂に埋まる、忘れられない体験！指宿の海岸に自然の地熱で温められた砂が約50〜55℃。青い浴衣を着てスタッフさんに砂をかけてもらい10分ほど入ります。「おじゃったもんせ」は鹿児島弁で「いらっしゃいませ」の意味。砂から出た後は体の芯からポカポカでした！",
+      "background": "Ibusuki's natural sand baths (砂むし温泉) have a history of over 300 years, making them the world's only naturally occurring beach sand baths heated entirely by geothermal springs. Kagoshima University research suggests that 10 minutes in the sand delivers the equivalent cardiovascular benefit of 3–4 times that of a regular hot spring bath. The name 'Saraku' (砂楽) comes from the Kagoshima dialect word 'sozoro aruku' meaning a leisurely, carefree stroll.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/ibusuki-saraku.jpg",
+          "caption": "Ready for the sand — Ojattamonse! おじゃったもんせ！"
+        }
+      ],
+      "website": "https://sa-raku.sakura.ne.jp/",
+      "tags": [
+        "onsen",
+        "sand bath",
+        "Ibusuki",
+        "geothermal",
+        "砂むし",
+        "体験"
+      ],
+      "lat": 31.237,
+      "lng": 130.6352
+    },
+    {
+      "id": "fukushoji-shimazu-graves",
+      "type": "visited",
+      "name": "Fukushoji — Shimazu Clan Burial Grounds",
+      "name_ja": "福昌寺跡 島津家墓地",
+      "location": "Fukushoji-cho, Kagoshima City",
+      "date": "2025-12-31",
+      "rating": 5,
+      "who_picked": "Alan",
+      "our_notes": "The burial grounds of the Shimazu clan, lords of Satsuma for over 700 years. Rows of identical mossy stone lanterns flank the central grave monument behind a weathered stone torii. Atmospheric, quiet, and off the tourist trail. Fukushoji Temple itself was once one of the three largest in Japan with 1,500 monks, destroyed in the 1869 Meiji anti-Buddhist purges.",
+      "our_notes_ja": "700年以上にわたって薩摩を治めた島津家歴代当主（第6代〜第28代）の墓所。石造りの鳥居の奥に苔むした石灯籠がずらりと並ぶ、静寂で圧倒的な場所。かつてここには1500人の修行僧がいた日本三大僧録所・福昌寺がありましたが、明治2年（1869年）の廃仏毀釈で廃寺となりました。",
+      "background": "Fukushoji was established in 1394 by the 6th Shimazu lord, Ujihisa, and grew to become one of Japan's three great Zen administrative centres with over 1,500 resident monks. The Shimazu clan ruled Satsuma domain for 29 generations spanning nearly 700 years — one of the longest continuous feudal dynasties in Japanese history. The temple was destroyed in 1869 during the Meiji government's shinbutsu bunri (神仏分離) edict, driven by aggressive anti-Buddhist sentiment in Satsuma. Only the graves and stone lanterns survive.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/fukushoji.jpg",
+          "caption": "Stone torii and mossy lanterns — Shimazu clan graves, Fukushoji"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/fukushoji-sign.jpg",
+          "caption": "寺中常に千五百余人の修行僧あり — 1,500 monks once trained here"
+        }
+      ],
+      "tags": [
+        "history",
+        "Shimazu",
+        "Satsuma",
+        "cemetery",
+        "temple",
+        "Meiji",
+        "武士",
+        "歴史"
+      ],
+      "lat": 31.5832,
+      "lng": 130.5556
+    },
+    {
+      "id": "wasou-izakaya",
+      "type": "ate",
+      "name": "Wasou — Kagoshima Izakaya",
+      "name_ja": "和奏 — 鹿児島居酒屋",
+      "location": "Tenmonkan area, Kagoshima City",
+      "date": "2026-01-14",
+      "rating": 5,
+      "who_picked": "Ai",
+      "our_notes": "A magnificent izakaya near Tenmonkan tram stop with 100+ shochu varieties and Kagoshima home cooking. The handwritten monthly specials board listed about 20 rare limited-edition bottles with illustrated labels. We tried 華吟 (Hanagin) by Toyoshizagura — a ginjo-yeast shochu, fragrant and elegant — and 大海綾紫 (Taikai Ayamurasaki) by Taikai Shuzo — shirokoji-fermented, crisp and citrusy.",
+      "our_notes_ja": "薩摩の郷土料理と希少な焼酎100種以上が揃う天文館そばの居酒屋。今月のおすすめは手書きイラスト入りで約20種の限定焼酎が紹介されていました。豊姿蔵の「華吟」と大海酒造の「大海綾紫」を楽しみました。華吟は吟醸酵母で仕込んだ優雅な香り、大海綾紫は白麹で仕込んだキレのある柑橘系の味わい。",
+      "background": "Wasou is run by a head chef who personally sources rare and limited-edition Kagoshima shochu from around the prefecture. Unusually, they also operate a sake shop — Sakahoya Wasou (酒穂屋和奏) — making them one of the most serious shochu destinations in the city. Tenmonkan is Kagoshima's historic tram-served entertainment district, named after an Edo-period astronomical observatory (天文館) built by Shimazu Shigehide in 1779.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/wasou-taikai.jpg",
+          "caption": "大海綾紫 (Taikai Ayamurasaki) — shirokoji, crisp and citrusy"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/wasou-menu.jpg",
+          "caption": "Monthly specials board — handwritten illustrations of rare bottles"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/wasou-hanagin.jpg",
+          "caption": "華吟 (Hanagin) by Toyoshizagura — ginjo yeast shochu"
+        }
+      ],
+      "tags": [
+        "焼酎",
+        "shochu",
+        "izakaya",
+        "Tenmonkan",
+        "Kagoshima cuisine",
+        "rare bottles"
+      ],
+      "lat": 31.5913,
+      "lng": 130.5572
+    },
+    {
+      "id": "lovely-cafe-minamikaze",
+      "type": "ate",
+      "name": "Lovely at Café Minamikaze",
+      "name_ja": "あつあつ焼きたてラブリー at カフェ南風",
+      "location": "Kagoshima City, near Kagoshima-Chuo Station",
+      "date": "2026-06-28",
+      "rating": 4,
+      "who_picked": "Alan",
+      "our_notes": "Stopped off on the way back from buying a blender in Kagoshima Chuo. Great value for a cake and drink set at 660 yen. Nice little find — sweet potato tart fresh from the oven, served with ice cream and a coffee.",
+      "our_notes_ja": "鹿児島中央でブレンダーを買った帰り道に立ち寄りました。ケーキとドリンクのセットが660円でとてもお得。焼きたてのさつまいものタルトにアイスクリームとコーヒー。思いがけない素敵なお店でした。",
+      "background": "Festivalo is a local Kagoshima chain known for its freshly baked sweet potato sweets. Kagoshima sweet potato (薩摩芋) has been the prefecture's signature produce for over 400 years — introduced via Okinawa from Southeast Asia in the early 1600s and once used as famine insurance across Japan. The famous Satsuma variety remains one of Japan's most prized.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/festivalo.jpg",
+          "caption": "あつあつ焼きたてラブリー — sweet potato tart with ice cream, 660¥"
+        }
+      ],
+      "website": "https://www.festivalo.co.jp/minami_kaze/",
+      "tags": [
+        "sweet potato",
+        "café",
+        "cake set",
+        "value for money",
+        "さつまいも"
+      ],
+      "lat": 31.5881,
+      "lng": 130.5428
+    }
+  ]
+}

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan & Ai — Japan Challenge 🗾</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root {
+  --red:       #C0392B;
+  --red-light: #E74C3C;
+  --navy:      #1A2744;
+  --cream:     #FFF8F0;
+  --cream-dk:  #F5EDDF;
+  --gray:      #6C7A89;
+  --gray-lt:   #ECF0F1;
+  --text:      #2C3E50;
+  --visited:   #27AE60;
+  --visited-lt:#2ECC71;
+  --gold:      #C9960A;
+  --gold-lt:   #F0C040;
+  --ate:       #E67E22;
+  --visited-place: #2980B9;
+  --stayed:    #8E44AD;
+  --experience:#27AE60;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  color: white;
+  padding: 0 20px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+.header-logo { font-size: 22px; }
+.header-title { font-size: 17px; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap; color: white; line-height: 1.2; }
+.header-title span { color: var(--gold-lt); }
+.header-sub { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.3px; }
+.header-progress { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.progress-label { font-size: 12px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+.progress-count { font-size: 20px; font-weight: 800; color: var(--gold-lt); line-height: 1; }
+.progress-of { font-size: 13px; color: rgba(255,255,255,0.4); }
+.progress-bar-wrap { width: 120px; height: 6px; background: rgba(255,255,255,0.12); border-radius: 3px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--gold-lt); border-radius: 3px; transition: width 0.6s ease; }
+
+/* ── LAYOUT ── */
+.app-body { display: flex; flex: 1; overflow: hidden; }
+
+/* ── SIDEBAR ── */
+sidebar {
+  width: 300px; min-width: 300px;
+  background: var(--navy); color: white;
+  display: flex; flex-direction: column; overflow: hidden;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.sidebar-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
+.sidebar-tab {
+  flex: 1; padding: 10px 4px; text-align: center;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px; cursor: pointer;
+  color: rgba(255,255,255,0.4); border-bottom: 2px solid transparent;
+  transition: all 0.15s; text-transform: uppercase;
+}
+.sidebar-tab.active { color: white; border-bottom-color: var(--gold-lt); }
+.sidebar-panel { display: none; flex: 1; overflow-y: auto; flex-direction: column; }
+.sidebar-panel.active { display: flex; }
+
+/* MAP PANEL */
+.map-panel { padding: 14px; align-items: center; gap: 0; }
+.map-title { font-size: 10px; color: rgba(255,255,255,0.3); margin-bottom: 10px; text-align: center; letter-spacing: 0.5px; text-transform: uppercase; }
+#tile-map { display: grid; gap: 2px; grid-template-columns: repeat(11, 23px); grid-template-rows: repeat(13, 21px); }
+.tile {
+  width: 23px; height: 21px; background: rgba(255,255,255,0.07);
+  border-radius: 3px; display: flex; align-items: center; justify-content: center;
+  font-size: 7px; color: rgba(255,255,255,0.3); cursor: pointer;
+  transition: all 0.15s; user-select: none; border: 1px solid transparent;
+  line-height: 1; text-align: center;
+}
+.tile.empty { background: transparent; border: none; cursor: default; }
+.tile:not(.empty):hover { background: rgba(255,255,255,0.18); color: white; transform: scale(1.12); z-index: 10; }
+.tile.visited { background: rgba(39,174,96,0.3); color: rgba(255,255,255,0.9); border-color: rgba(39,174,96,0.5); }
+.tile.visited:hover { background: rgba(39,174,96,0.6); border-color: var(--visited-lt); color: white; }
+.tile.selected { background: var(--visited) !important; color: white !important; border-color: var(--visited-lt) !important; transform: scale(1.15); font-weight: 700; z-index: 10; }
+.map-count { font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; margin-top: 10px; }
+.map-legend { display: flex; gap: 14px; margin-top: 8px; font-size: 10px; color: rgba(255,255,255,0.35); justify-content: center; }
+.legend-item { display: flex; align-items: center; gap: 4px; }
+.legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+.legend-dot.visited { background: var(--visited); }
+.legend-dot.no-data { background: rgba(255,255,255,0.15); }
+
+/* LIST PANEL */
+.region-header { padding: 8px 16px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.3); background: rgba(0,0,0,0.18); border-top: 1px solid rgba(255,255,255,0.05); flex-shrink: 0; }
+.pref-list-item { padding: 7px 16px 7px 20px; font-size: 13px; cursor: pointer; color: rgba(255,255,255,0.45); display: flex; align-items: center; justify-content: space-between; gap: 8px; transition: all 0.1s; border-left: 3px solid transparent; flex-shrink: 0; }
+.pref-list-item:hover { background: rgba(255,255,255,0.07); color: white; }
+.pref-list-item.visited { color: rgba(255,255,255,0.85); }
+.pref-list-item.selected { background: rgba(39,174,96,0.2); border-left-color: var(--visited); color: white; }
+.pref-name-wrap { display: flex; flex-direction: column; }
+.pref-name-ja { font-size: 10px; color: rgba(255,255,255,0.35); }
+
+/* STATS PANEL */
+.stats-panel { padding: 16px 14px; gap: 10px; }
+.stat-card { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.08); }
+.stat-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.stat-value { font-size: 24px; font-weight: 800; color: var(--gold-lt); line-height: 1; }
+.stat-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; }
+.region-progress { margin-top: 4px; }
+.region-prog-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 11px; color: rgba(255,255,255,0.5); }
+.region-prog-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+.region-prog-fill { height: 100%; background: var(--visited); border-radius: 2px; }
+.region-prog-count { font-size: 10px; color: rgba(255,255,255,0.35); white-space: nowrap; }
+
+/* ── MAIN ── */
+main { flex: 1; overflow: auto; display: flex; flex-direction: column; }
+
+/* WELCOME */
+.welcome { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 32px; text-align: center; color: var(--gray); gap: 16px; }
+.welcome-icon { font-size: 72px; }
+.welcome-title { font-size: 26px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+.welcome-title span { color: var(--visited); }
+.welcome-sub { font-size: 15px; max-width: 420px; line-height: 1.7; }
+.welcome-hint { background: var(--cream-dk); border-radius: 10px; padding: 14px 22px; font-size: 13px; max-width: 380px; line-height: 1.7; color: var(--gray); }
+
+/* PREF MAP HEADER */
+.pref-map-wrap { position: relative; width: 100%; height: 260px; flex-shrink: 0; background: #e8eef4; }
+#pref-map { width: 100%; height: 100%; }
+.pref-map-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(26,39,68,0.82) 0%, transparent 100%); padding: 16px 28px 14px; pointer-events: none; z-index: 500; }
+.hero-pref-name { font-size: 26px; font-weight: 800; color: white; line-height: 1.1; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+.hero-pref-ja { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+/* keep .pref-hero-overlay for old CSS compatibility */
+.pref-hero-overlay { display: none; }
+.hero-pref-name { font-size: 30px; font-weight: 800; color: white; line-height: 1.1; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+.hero-pref-ja { font-size: 16px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+.hero-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+.hero-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2); }
+.hero-badge.visited-badge-hero { background: rgba(39,174,96,0.6); border-color: rgba(39,174,96,0.8); color: white; }
+.hero-badge.season-spring { background: rgba(255,105,180,0.5); border-color: rgba(255,105,180,0.7); }
+.hero-badge.season-summer { background: rgba(41,128,185,0.5); border-color: rgba(41,128,185,0.7); }
+.hero-badge.season-autumn { background: rgba(211,84,0,0.5); border-color: rgba(211,84,0,0.7); }
+.hero-badge.season-winter { background: rgba(100,149,237,0.5); border-color: rgba(100,149,237,0.7); }
+
+/* NOT VISITED */
+.not-visited-state { padding: 40px 28px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; color: var(--gray); flex: 1; }
+.not-visited-icon { font-size: 48px; opacity: 0.4; }
+.not-visited-title { font-size: 18px; font-weight: 700; color: var(--navy); }
+.not-visited-sub { font-size: 14px; max-width: 320px; line-height: 1.7; }
+
+/* OUR STORY */
+.our-story-section { padding: 20px 28px 0; flex-shrink: 0; }
+.section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--visited); margin-bottom: 8px; }
+.our-story-bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.story-en { font-size: 13px; line-height: 1.8; color: var(--text); font-style: italic; background: var(--cream-dk); border-radius: 8px; padding: 14px 18px; border-left: 3px solid var(--visited); }
+.story-ja { font-size: 13px; line-height: 1.9; color: #5a6a7a; background: #f5f5fa; border-radius: 8px; padding: 14px 18px; border-left: 3px solid rgba(39,174,96,0.4); }
+.must-return { margin-top: 10px; font-size: 13px; color: var(--red); background: rgba(192,57,43,0.06); border-radius: 8px; padding: 10px 14px; border-left: 3px solid var(--red); }
+.must-return strong { font-weight: 700; }
+
+/* ENTRY FILTER BAR */
+.entry-filter-bar { padding: 12px 28px; display: flex; gap: 8px; border-bottom: 1px solid #e8e0d8; background: white; position: sticky; top: 0; z-index: 50; flex-wrap: wrap; flex-shrink: 0; margin-top: 16px; }
+.type-btn { border: none; border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; background: var(--gray-lt); color: var(--gray); }
+.type-btn:hover { opacity: 0.8; }
+.type-btn.active { color: white; }
+.type-btn[data-type="all"].active  { background: var(--navy); }
+.type-btn[data-type="ate"].active  { background: var(--ate); }
+.type-btn[data-type="visited"].active { background: var(--visited-place); }
+.type-btn[data-type="stayed"].active  { background: var(--stayed); }
+.type-btn[data-type="experience"].active { background: var(--experience); }
+
+/* ENTRIES GRID */
+.entries-area { padding: 20px 28px 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 16px; align-content: start; }
+
+/* ENTRY CARD */
+.entry-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #e8e0d8; transition: box-shadow 0.15s, transform 0.15s; display: flex; flex-direction: column; }
+.entry-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.11); transform: translateY(-1px); }
+
+/* CARD PHOTO */
+/* CARD PHOTO */
+.card-photo-wrap { position: relative; width: 100%; background: #1c1c2e; flex-shrink: 0; }
+.card-photo-img-area { width: 100%; min-height: 180px; max-height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.card-photo-wrap img { width: 100%; height: auto; max-height: 300px; object-fit: contain; display: block; opacity: 0; transition: opacity 0.35s; }
+.card-photo-wrap img.loaded { opacity: 1; }
+.card-photo-placeholder { width: 100%; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 36px; opacity: 0.2; gap: 6px; background: var(--cream-dk); }
+.card-photo-placeholder span { font-size: 11px; color: var(--gray); }
+.card-photo-caption { position: absolute; bottom: 0; left: 0; right: 0; font-size: 10px; color: rgba(255,255,255,0.85); background: linear-gradient(transparent, rgba(0,0,0,0.65)); padding: 22px 10px 7px; }
+/* Photo nav arrows */
+.photo-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.15s; padding: 0; line-height: 1; }
+.photo-nav:hover { background: rgba(0,0,0,0.75); }
+.photo-nav.prev { left: 8px; }
+.photo-nav.next { right: 8px; }
+/* Photo dots */
+.photo-dots { position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 10; padding-bottom: 2px; }
+.photo-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); border: none; cursor: pointer; padding: 0; transition: background 0.15s; }
+.photo-dot.active { background: white; }
+
+/* CARD HEADER */
+.card-header { padding: 12px 16px 8px; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid #f0e8e0; }
+.type-badge { flex-shrink: 0; padding: 3px 9px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: white; margin-top: 2px; }
+.badge-ate       { background: var(--ate); }
+.badge-visited   { background: var(--visited-place); }
+.badge-stayed    { background: var(--stayed); }
+.badge-experience { background: var(--experience); }
+.card-title { flex: 1; }
+.card-name-en { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.card-name-ja { font-size: 12px; color: var(--gray); margin-top: 2px; }
+.card-location { font-size: 11px; color: var(--gray); margin-top: 3px; }
+.card-date { font-size: 10px; color: var(--gray); white-space: nowrap; margin-top: 2px; opacity: 0.7; flex-shrink: 0; align-self: flex-start; padding-top: 3px; }
+
+/* CARD BODY */
+.card-body { padding: 12px 16px; flex: 1; }
+
+/* BILINGUAL NOTES */
+.bilingual-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.note-en { font-size: 13px; line-height: 1.7; color: var(--text); }
+.note-ja { font-size: 13px; line-height: 1.85; color: #5a6a7a; border-left: 2px solid #e0d8d0; padding-left: 10px; }
+.note-single { font-size: 13px; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+
+.who-picked { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray); margin-bottom: 10px; }
+.who-picked span { font-weight: 600; color: var(--navy); }
+
+/* DID YOU KNOW */
+.did-you-know { background: #f0f4ff; border-radius: 7px; padding: 10px 13px; border-left: 3px solid #2980B9; margin-top: 8px; }
+.dyk-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #2980B9; margin-bottom: 5px; }
+.dyk-text { font-size: 12px; line-height: 1.65; color: #3a4a5a; }
+
+/* RATING */
+.rating { display: flex; gap: 2px; margin-bottom: 8px; }
+.star { font-size: 13px; }
+.star.filled { color: var(--gold); }
+.star.empty { color: #ddd; }
+
+/* CARD FOOTER */
+.card-footer { padding: 8px 16px 10px; border-top: 1px solid #f0e8e0; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tag { background: var(--gray-lt); color: var(--gray); padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.card-links { margin-left: auto; display: flex; gap: 6px; }
+.card-link { font-size: 11px; color: var(--visited-place); text-decoration: none; padding: 2px 8px; border: 1px solid currentColor; border-radius: 4px; transition: all 0.1s; }
+.card-link:hover { background: var(--visited-place); color: white; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+sidebar ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
+
+.no-entries { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--gray); font-size: 14px; }
+
+@media (max-width: 900px) {
+  .entries-area { grid-template-columns: 1fr; padding: 12px 16px; }
+  .bilingual-notes { grid-template-columns: 1fr; }
+  .note-ja { border-left: none; padding-left: 0; border-top: 1px solid #e0d8d0; padding-top: 8px; }
+  .our-story-bilingual { grid-template-columns: 1fr; }
+  .pref-map-wrap { height: 200px; }
+  .entry-filter-bar, .our-story-section { padding-left: 16px; padding-right: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">🗾</div>
+  <div>
+    <div class="header-title">Alan <span>&</span> Ai — Japan Challenge</div>
+    <div class="header-sub">47都道府県制覇への旅</div>
+  </div>
+  <div class="header-progress">
+    <div class="progress-label">Visited</div>
+    <div class="progress-count" id="prog-count">0</div>
+    <div class="progress-of">/ 47</div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-bar" style="width:0%"></div></div>
+  </div>
+</header>
+
+<div class="app-body">
+<sidebar>
+  <div class="sidebar-tabs">
+    <div class="sidebar-tab active" data-panel="map">🗺 Map</div>
+    <div class="sidebar-tab" data-panel="list">List</div>
+    <div class="sidebar-tab" data-panel="stats">Stats</div>
+  </div>
+  <div class="sidebar-panel map-panel active" id="panel-map">
+    <div class="map-title">Japan — 日本地図</div>
+    <div id="tile-map"></div>
+    <div class="map-count" id="map-count">0 / 47 prefectures visited</div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot visited"></div> Visited</div>
+      <div class="legend-item"><div class="legend-dot no-data"></div> Not yet</div>
+    </div>
+  </div>
+  <div class="sidebar-panel" id="panel-list"></div>
+  <div class="sidebar-panel stats-panel" id="panel-stats"></div>
+</sidebar>
+
+<main id="main">
+  <div class="welcome" id="welcome">
+    <div class="welcome-icon">🏯</div>
+    <div class="welcome-title">Every Prefecture,<br><span>Together</span></div>
+    <div class="welcome-sub">Click a prefecture on the map or in the list to see your adventure there — food, places, stays, and the stories behind them.</div>
+    <div class="welcome-hint">🌸 Select any prefecture to explore your visit, or ask Claude to add a new entry after a trip.</div>
+  </div>
+</main>
+</div>
+
+<script>
+const ALL_PREFECTURES = [
+  ['hokkaido',  'Hokkaido',  '北海道', 10, 0,  'Hokkaido'],
+  ['aomori',    'Aomori',    '青森',    8, 1,  'Tohoku'],
+  ['iwate',     'Iwate',     '岩手',    9, 1,  'Tohoku'],
+  ['akita',     'Akita',     '秋田',    7, 2,  'Tohoku'],
+  ['miyagi',    'Miyagi',    '宮城',    8, 2,  'Tohoku'],
+  ['yamagata',  'Yamagata',  '山形',    7, 3,  'Tohoku'],
+  ['fukushima', 'Fukushima', '福島',    8, 3,  'Tohoku'],
+  ['ibaraki',   'Ibaraki',   '茨城',    9, 4,  'Kanto'],
+  ['tochigi',   'Tochigi',   '栃木',    8, 4,  'Kanto'],
+  ['gunma',     'Gunma',     '群馬',    7, 4,  'Kanto'],
+  ['saitama',   'Saitama',   '埼玉',    8, 5,  'Kanto'],
+  ['tokyo',     'Tokyo',     '東京',    9, 5,  'Kanto'],
+  ['chiba',     'Chiba',     '千葉',   10, 5,  'Kanto'],
+  ['kanagawa',  'Kanagawa',  '神奈川',  9, 6,  'Kanto'],
+  ['niigata',   'Niigata',   '新潟',    6, 3,  'Chubu'],
+  ['toyama',    'Toyama',    '富山',    5, 4,  'Chubu'],
+  ['ishikawa',  'Ishikawa',  '石川',    4, 4,  'Chubu'],
+  ['fukui',     'Fukui',     '福井',    4, 5,  'Chubu'],
+  ['yamanashi', 'Yamanashi', '山梨',    8, 6,  'Chubu'],
+  ['nagano',    'Nagano',    '長野',    7, 5,  'Chubu'],
+  ['gifu',      'Gifu',      '岐阜',    6, 5,  'Chubu'],
+  ['shizuoka',  'Shizuoka',  '静岡',    8, 7,  'Chubu'],
+  ['aichi',     'Aichi',     '愛知',    7, 6,  'Chubu'],
+  ['mie',       'Mie',       '三重',    6, 7,  'Kinki'],
+  ['shiga',     'Shiga',     '滋賀',    5, 6,  'Kinki'],
+  ['kyoto',     'Kyoto',     '京都',    4, 6,  'Kinki'],
+  ['osaka',     'Osaka',     '大阪',    5, 7,  'Kinki'],
+  ['hyogo',     'Hyogo',     '兵庫',    4, 7,  'Kinki'],
+  ['nara',      'Nara',      '奈良',    6, 6,  'Kinki'],
+  ['wakayama',  'Wakayama',  '和歌山',  5, 8,  'Kinki'],
+  ['tottori',   'Tottori',   '鳥取',    3, 6,  'Chugoku'],
+  ['shimane',   'Shimane',   '島根',    2, 6,  'Chugoku'],
+  ['okayama',   'Okayama',   '岡山',    3, 7,  'Chugoku'],
+  ['hiroshima', 'Hiroshima', '広島',    2, 7,  'Chugoku'],
+  ['yamaguchi', 'Yamaguchi', '山口',    1, 7,  'Chugoku'],
+  ['tokushima', 'Tokushima', '徳島',    4, 8,  'Shikoku'],
+  ['kagawa',    'Kagawa',    '香川',    3, 8,  'Shikoku'],
+  ['ehime',     'Ehime',     '愛媛',    2, 8,  'Shikoku'],
+  ['kochi',     'Kochi',     '高知',    3, 9,  'Shikoku'],
+  ['fukuoka',   'Fukuoka',   '福岡',    1, 8,  'Kyushu'],
+  ['saga',      'Saga',      '佐賀',    0, 8,  'Kyushu'],
+  ['nagasaki',  'Nagasaki',  '長崎',    0, 9,  'Kyushu'],
+  ['kumamoto',  'Kumamoto',  '熊本',    1, 9,  'Kyushu'],
+  ['oita',      'Oita',      '大分',    2, 9,  'Kyushu'],
+  ['miyazaki',  'Miyazaki',  '宮崎',    2, 10, 'Kyushu'],
+  ['kagoshima', 'Kagoshima', '鹿児島',  1, 10, 'Kyushu'],
+  ['okinawa',   'Okinawa',   '沖縄',    0, 12, 'Okinawa'],
+];
+
+const REGION_ORDER = ['Hokkaido','Tohoku','Kanto','Chubu','Kinki','Chugoku','Shikoku','Kyushu','Okinawa'];
+const REGION_JA = { Hokkaido:'北海道', Tohoku:'東北', Kanto:'関東', Chubu:'中部', Kinki:'近畿', Chugoku:'中国', Shikoku:'四国', Kyushu:'九州', Okinawa:'沖縄' };
+const TYPE_EMOJI = { ate:'🍜', visited:'🗺️', stayed:'🏨', experience:'✨' };
+const TYPE_LABEL = { ate:'Ate', visited:'Visited', stayed:'Stayed', experience:'Experience' };
+const SEASON_EMOJI = { spring:'🌸', summer:'☀️', autumn:'🍁', winter:'❄️' };
+const TYPE_COLOR = { ate:'#E67E22', visited:'#2980B9', stayed:'#8E44AD', experience:'#27AE60' };
+
+// Prefecture map centres [lat, lng, zoom]
+const PREF_CENTER = {
+  hokkaido:[43.5,142.5,7], aomori:[40.8,140.9,9], iwate:[39.5,141.5,8],
+  akita:[39.7,140.4,8], miyagi:[38.4,141.0,9], yamagata:[38.5,140.1,9],
+  fukushima:[37.5,140.4,8], ibaraki:[36.3,140.4,9], tochigi:[36.6,139.9,9],
+  gunma:[36.5,139.0,9], saitama:[36.0,139.5,10], tokyo:[35.7,139.7,11],
+  chiba:[35.6,140.2,10], kanagawa:[35.5,139.4,10], niigata:[37.5,138.9,8],
+  toyama:[36.7,137.2,9], ishikawa:[36.6,136.6,9], fukui:[35.9,136.2,9],
+  yamanashi:[35.6,138.6,9], nagano:[36.2,138.0,8], gifu:[35.8,137.0,9],
+  shizuoka:[34.9,138.4,9], aichi:[35.1,137.2,9], mie:[34.5,136.5,9],
+  shiga:[35.2,136.1,10], kyoto:[35.2,135.8,10], osaka:[34.7,135.5,11],
+  hyogo:[34.9,135.2,9], nara:[34.4,136.1,10], wakayama:[33.9,135.2,9],
+  tottori:[35.4,133.8,9], shimane:[35.1,132.5,9], okayama:[34.9,133.9,9],
+  hiroshima:[34.4,132.8,9], yamaguchi:[34.2,131.5,9], tokushima:[33.9,134.4,9],
+  kagawa:[34.2,134.0,10], ehime:[33.8,132.8,9], kochi:[33.4,133.5,9],
+  fukuoka:[33.6,130.6,10], saga:[33.3,130.2,10], nagasaki:[32.8,129.9,9],
+  kumamoto:[32.8,130.9,9], oita:[33.2,131.6,9], miyazaki:[32.0,131.4,9],
+  kagoshima:[31.4,130.6,9], okinawa:[26.5,128.0,9]
+};
+
+let visitedSet = new Set();
+let currentPref = null;
+let currentData = null;
+let activeTypeFilter = 'all';
+let _prefMap = null;
+let _japanGeoJSON = null;
+
+async function boot() {
+  try {
+    const res = await fetch('data/index.json');
+    if (!res.ok) throw new Error();
+    const manifest = await res.json();
+    visitedSet = new Set(Object.keys(manifest.visited || {}));
+  } catch(e) { visitedSet = new Set(); }
+  renderMap(); renderList(); renderStats(); updateProgress();
+}
+
+function renderMap() {
+  const grid = Array.from({length:13}, () => Array(11).fill(null));
+  ALL_PREFECTURES.forEach(([key, en, ja, col, row]) => { grid[row][col] = {key, en, ja}; });
+  const map = document.getElementById('tile-map');
+  map.innerHTML = '';
+  for (let r = 0; r < 13; r++) {
+    for (let c = 0; c < 11; c++) {
+      const cell = grid[r][c];
+      const div = document.createElement('div');
+      if (!cell) { div.className = 'tile empty'; }
+      else {
+        div.className = 'tile' + (visitedSet.has(cell.key) ? ' visited' : '') + (currentPref === cell.key ? ' selected' : '');
+        div.textContent = cell.ja.slice(0,2);
+        div.title = `${cell.en} ${cell.ja}`;
+        div.dataset.key = cell.key;
+        div.addEventListener('click', () => selectPref(cell.key));
+      }
+      map.appendChild(div);
+    }
+  }
+  document.getElementById('map-count').textContent = `${visitedSet.size} / 47 prefectures visited`;
+}
+
+function renderList() {
+  const panel = document.getElementById('panel-list');
+  panel.innerHTML = '';
+  const byRegion = {};
+  ALL_PREFECTURES.forEach(([key, en, ja,,, region]) => {
+    if (!byRegion[region]) byRegion[region] = [];
+    byRegion[region].push({key, en, ja});
+  });
+  REGION_ORDER.forEach(region => {
+    const prefs = byRegion[region] || [];
+    const count = prefs.filter(p => visitedSet.has(p.key)).length;
+    const hdr = document.createElement('div');
+    hdr.className = 'region-header';
+    hdr.textContent = `${region} ${REGION_JA[region]}  ${count}/${prefs.length}`;
+    panel.appendChild(hdr);
+    prefs.forEach(({key, en, ja}) => {
+      const item = document.createElement('div');
+      item.className = 'pref-list-item' + (visitedSet.has(key) ? ' visited' : '') + (currentPref === key ? ' selected' : '');
+      item.dataset.key = key;
+      item.innerHTML = `<div class="pref-name-wrap"><div>${en}</div><div class="pref-name-ja">${ja}</div></div>${visitedSet.has(key) ? '<div style="font-size:14px">✅</div>' : '<div style="font-size:14px;opacity:0.3">○</div>'}`;
+      item.addEventListener('click', () => selectPref(key));
+      panel.appendChild(item);
+    });
+  });
+}
+
+function renderStats() {
+  const panel = document.getElementById('panel-stats');
+  const byRegion = {};
+  ALL_PREFECTURES.forEach(([key,,,,, region]) => {
+    if (!byRegion[region]) byRegion[region] = {total:0, visited:0};
+    byRegion[region].total++;
+    if (visitedSet.has(key)) byRegion[region].visited++;
+  });
+  const pct = Math.round((visitedSet.size / 47) * 100);
+  panel.innerHTML = `
+    <div class="stat-card"><div class="stat-label">Overall Progress</div><div class="stat-value">${visitedSet.size}<small style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.4)"> / 47</small></div><div class="stat-sub">${pct}% of Japan explored together</div></div>
+    <div class="stat-card"><div class="stat-label">By Region</div><div class="region-progress">${REGION_ORDER.map(r=>{const d=byRegion[r]||{total:0,visited:0};const p=d.total?Math.round((d.visited/d.total)*100):0;return`<div class="region-prog-row"><span style="width:70px;font-size:10px">${r}</span><div class="region-prog-bar"><div class="region-prog-fill" style="width:${p}%"></div></div><span class="region-prog-count">${d.visited}/${d.total}</span></div>`;}).join('')}</div></div>
+    <div class="stat-card"><div class="stat-label">Still to Discover</div><div class="stat-value">${47-visitedSet.size}</div><div class="stat-sub">prefectures awaiting your first visit</div></div>`;
+}
+
+function updateProgress() {
+  document.getElementById('prog-count').textContent = visitedSet.size;
+  document.getElementById('prog-bar').style.width = ((visitedSet.size/47)*100) + '%';
+}
+
+async function selectPref(key) {
+  currentPref = key; activeTypeFilter = 'all';
+  document.querySelectorAll('.tile').forEach(t => t.classList.remove('selected'));
+  const tile = document.querySelector(`.tile[data-key="${key}"]`);
+  if (tile) tile.classList.add('selected');
+  document.querySelectorAll('.pref-list-item').forEach(i => i.classList.remove('selected'));
+  const li = document.querySelector(`.pref-list-item[data-key="${key}"]`);
+  if (li) li.classList.add('selected');
+  const pref = ALL_PREFECTURES.find(p => p[0] === key);
+  const [, en, ja] = pref || [key, key, ''];
+  if (!visitedSet.has(key)) { renderNotVisited(en, ja); return; }
+  try {
+    const res = await fetch(`data/${key}.json`);
+    if (!res.ok) throw new Error();
+    currentData = await res.json();
+    renderPrefPage(currentData);
+  } catch(e) { renderNotVisited(en, ja); }
+}
+
+function renderNotVisited(en, ja) {
+  document.getElementById('main').innerHTML = `<div class="not-visited-state"><div class="not-visited-icon">🗾</div><div class="not-visited-title">${en} ${ja}</div><div class="not-visited-sub">You haven't visited ${en} yet — but it's waiting for you!</div></div>`;
+}
+
+function renderPrefPage(data) {
+  const main = document.getElementById('main');
+  const visits = data.visits || [];
+  const latestVisit = visits[visits.length - 1] || {};
+  const season = latestVisit.season || '';
+  const ourStory = latestVisit.our_story || data.our_story || '';
+  const ourStoryJa = latestVisit.our_story_ja || data.our_story_ja || '';
+  const mustReturn = data.must_return_for || '';
+
+  const mapHtml = `<div class="pref-map-wrap"><div id="pref-map"></div><div class="pref-map-overlay"><div class="hero-pref-name">${data.prefecture || ''}</div><div class="hero-pref-ja">${data.prefecture_ja || ''}</div></div></div>`;
+
+  const storyHtml = ourStory ? `
+    <div class="our-story-section">
+      <div class="section-label">✍️ Our Story</div>
+      <div class="our-story-bilingual">
+        <div class="story-en">"${ourStory}"</div>
+        ${ourStoryJa ? `<div class="story-ja">「${ourStoryJa}」</div>` : ''}
+      </div>
+      ${mustReturn ? `<div class="must-return"><strong>📌 Must return for:</strong> ${mustReturn}</div>` : ''}
+    </div>` : '';
+
+  const entries = data.entries || [];
+  const typeCounts = {all: entries.length};
+  entries.forEach(e => { typeCounts[e.type] = (typeCounts[e.type]||0) + 1; });
+
+  const filterBar = `
+    <div class="entry-filter-bar" id="filter-bar">
+      ${['all','ate','visited','stayed','experience'].map(t => {
+        const count = typeCounts[t] || 0;
+        if (t !== 'all' && count === 0) return '';
+        const label = t === 'all' ? '🌏 All' : `${TYPE_EMOJI[t]} ${TYPE_LABEL[t]}`;
+        return `<button class="type-btn${activeTypeFilter===t?' active':''}" data-type="${t}">${label} <small style="opacity:0.6">${count}</small></button>`;
+      }).join('')}
+    </div>`;
+
+  main.innerHTML = mapHtml + storyHtml + filterBar + `<div class="entries-area" id="entries-area"></div>`;
+
+  // Destroy old map
+  if (_prefMap) { _prefMap.remove(); _prefMap = null; }
+
+  // Init Leaflet map
+  const center = PREF_CENTER[currentPref] || [35.5, 137, 8];
+  _prefMap = L.map('pref-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: false });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 18 }).addTo(_prefMap);
+  _prefMap.setView([center[0], center[1]], center[2]);
+
+  // Add markers for entries that have coordinates
+  entries.forEach(e => {
+    if (e.lat && e.lng) {
+      const color = TYPE_COLOR[e.type] || '#666';
+      const icon = L.divIcon({
+        html: `<div style="background:${color};width:13px;height:13px;border-radius:50%;border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.45)"></div>`,
+        className: '', iconSize: [13,13], iconAnchor: [6,6], popupAnchor: [0,-8]
+      });
+      L.marker([e.lat, e.lng], {icon})
+        .bindPopup(`<div style="font-size:12px;font-weight:700;line-height:1.3">${TYPE_EMOJI[e.type]||''} ${e.name}</div><div style="font-size:11px;color:#666;margin-top:2px">${e.location||''}</div>`)
+        .addTo(_prefMap);
+    }
+  });
+
+  // Load prefecture boundary GeoJSON and fit bounds
+  initPrefBoundary(currentPref, entries);
+
+  document.getElementById('filter-bar').addEventListener('click', e => {
+    const btn = e.target.closest('.type-btn');
+    if (!btn) return;
+    activeTypeFilter = btn.dataset.type;
+    document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderEntries();
+  });
+  renderEntries();
+}
+
+function renderEntries() {
+  const area = document.getElementById('entries-area');
+  if (!area || !currentData) return;
+  const entries = (currentData.entries || []).filter(e => activeTypeFilter === 'all' || e.type === activeTypeFilter);
+  if (entries.length === 0) { area.innerHTML = `<div class="no-entries">No entries yet.</div>`; return; }
+  area.innerHTML = entries.map(e => buildCard(e)).join('');
+
+  // Lazy-load images
+  area.querySelectorAll('img[data-src]').forEach(img => {
+    img.src = img.dataset.src;
+    img.addEventListener('load', () => img.classList.add('loaded'));
+  });
+
+  // Wire up photo navigation
+  area.querySelectorAll('.card-photo-wrap[data-photos]').forEach(wrap => {
+    const photos = JSON.parse(wrap.dataset.photos);
+    let idx = 0;
+
+    function goTo(newIdx) {
+      idx = (newIdx + photos.length) % photos.length;
+      wrap.dataset.idx = idx;
+      const img = wrap.querySelector('img');
+      const cap = wrap.querySelector('.card-photo-caption');
+      img.classList.remove('loaded');
+      img.src = photos[idx].url;
+      img.onload = () => img.classList.add('loaded');
+      if (cap) cap.textContent = photos[idx].caption || '';
+      wrap.querySelectorAll('.photo-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    wrap.querySelector('.photo-nav.prev')?.addEventListener('click', () => goTo(idx - 1));
+    wrap.querySelector('.photo-nav.next')?.addEventListener('click', () => goTo(idx + 1));
+    wrap.querySelectorAll('.photo-dot').forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  });
+}
+
+function buildCard(e) {
+  const photos = e.photos || [];
+  const firstPhoto = photos[0];
+  const typeClass = `badge-${e.type}`;
+  const badge = `<div class="type-badge ${typeClass}">${TYPE_EMOJI[e.type]||''} ${TYPE_LABEL[e.type]||e.type}</div>`;
+
+  let photoHtml = '';
+  if (firstPhoto) {
+    const multi = photos.length > 1;
+    const dots = multi ? `<div class="photo-dots">${photos.map((_,i) => `<button class="photo-dot${i===0?' active':''}"></button>`).join('')}</div>` : '';
+    const navs = multi ? `<button class="photo-nav prev">‹</button><button class="photo-nav next">›</button>` : '';
+    photoHtml = `<div class="card-photo-wrap"${multi?` data-photos='${JSON.stringify(photos)}' data-idx="0"`:''}><div class="card-photo-img-area"><img data-src="${firstPhoto.url}" alt="${firstPhoto.caption||e.name}"></div><div class="card-photo-caption">${firstPhoto.caption||''}</div>${navs}${dots}</div>`;
+  } else {
+    const ph = e.type==='ate'?'🍜':e.type==='visited'?'🗺️':e.type==='stayed'?'🏨':'✨';
+    photoHtml = `<div class="card-photo-wrap"><div class="card-photo-placeholder">${ph}<span>No photo yet</span></div></div>`;
+  }
+
+  const rating = e.rating || 0;
+  const stars = Array.from({length:5},(_,i)=>`<span class="star ${i<rating?'filled':'empty'}">${i<rating?'★':'☆'}</span>`).join('');
+  const whoPicked = e.who_picked ? `<div class="who-picked">🙋 <span>${e.who_picked}'s pick</span></div>` : '';
+
+  // Bilingual notes
+  let notesHtml = '';
+  if (e.our_notes && e.our_notes_ja) {
+    notesHtml = `<div class="bilingual-notes"><div class="note-en">${e.our_notes}</div><div class="note-ja">${e.our_notes_ja}</div></div>`;
+  } else if (e.our_notes) {
+    notesHtml = `<div class="note-single">${e.our_notes}</div>`;
+  }
+
+  const dyk = e.background ? `<div class="did-you-know"><div class="dyk-label">💡 Did You Know</div><div class="dyk-text">${e.background}</div></div>` : '';
+  const tags = (e.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+  const links = [];
+  if (e.google_maps_url) links.push(`<a class="card-link" href="${e.google_maps_url}" target="_blank">📍 Map</a>`);
+  if (e.website) links.push(`<a class="card-link" href="${e.website}" target="_blank">🔗 Website</a>`);
+
+  return `<div class="entry-card">
+    ${photoHtml}
+    <div class="card-header">${badge}<div class="card-title"><div class="card-name-en">${e.name}</div>${e.name_ja?`<div class="card-name-ja">${e.name_ja}</div>`:''} ${e.location?`<div class="card-location">📍 ${e.location}</div>`:''}</div>${e.date?`<div class="card-date">${formatDate(e.date)}</div>`:''}</div>
+    <div class="card-body">${rating>0?`<div class="rating">${stars}</div>`:''}${whoPicked}${notesHtml}${dyk}</div>
+    ${(tags||links.length)?`<div class="card-footer">${tags}${links.length?`<div class="card-links">${links.join('')}</div>`:''}</div>`:''}
+  </div>`;
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const dt = new Date(d + (d.length <= 7 ? '-01' : ''));
+  return dt.toLocaleDateString('en-GB', {year:'numeric', month:'long'});
+}
+
+async function initPrefBoundary(prefKey, entries) {
+  if (!_prefMap) return;
+  try {
+    if (!_japanGeoJSON) {
+      const res = await fetch('https://raw.githubusercontent.com/dataofjapan/land/master/japan.geojson');
+      _japanGeoJSON = await res.json();
+    }
+    const feature = _japanGeoJSON.features.find(f => {
+      const n = (f.properties.nam || '').toLowerCase();
+      return n === prefKey || n === prefKey + '-ken' || n === prefKey + '-to' || n === prefKey + '-fu';
+    });
+    if (feature && _prefMap) {
+      const layer = L.geoJSON(feature, {
+        style: { color: '#1A2744', weight: 2, fillColor: '#c8e6c9', fillOpacity: 0.35 }
+      }).addTo(_prefMap);
+      _prefMap.fitBounds(layer.getBounds(), {padding: [24, 24]});
+    }
+  } catch(e) { /* boundary optional — map still works */ }
+
+  // If any markers, open popup on first one after boundary loads
+  if (entries && _prefMap) {
+    const withCoords = entries.filter(e => e.lat && e.lng);
+    if (withCoords.length > 1) {
+      const group = L.featureGroup();
+      withCoords.forEach(e => L.marker([e.lat, e.lng]).addTo(group));
+      // don't refit if boundary already did
+    }
+  }
+}
+
+document.querySelectorAll('.sidebar-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.sidebar-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+  });
+});
+
+boot();
+</script>
+</body>
+</html>

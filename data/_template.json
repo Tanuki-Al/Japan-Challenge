@@ -1,0 +1,42 @@
+{
+  "_comment": "Template for prefecture JSON files. Copy and fill in for each new prefecture.",
+  "prefecture": "Prefecture Name",
+  "prefecture_ja": "都道府県名",
+  "region": "Kyushu",
+  "our_story": "English narrative of your visit — the feeling, the highlights, what made it special.",
+  "our_story_ja": "日本語での旅の物語。",
+  "must_return_for": "Something you didn't get to do but must go back for. Optional.",
+  "visits": [
+    {
+      "date": "2026-06",
+      "season": "summer",
+      "hero_photo": "https://raw.githubusercontent.com/Tanuki-Al/alanandai/main/photos/[prefecture]/hero.jpg"
+    }
+  ],
+  "entries": [
+    {
+      "id": "unique-slug-for-this-entry",
+      "type": "ate",
+      "_type_options": ["ate", "visited", "stayed", "experience"],
+      "name": "Place or dish name",
+      "name_ja": "場所・料理の名前",
+      "location": "City / neighbourhood",
+      "date": "2026-06",
+      "rating": 4,
+      "who_picked": "Alan",
+      "_who_picked": "Alan | Ai | null",
+      "our_notes": "Your personal notes in English.",
+      "our_notes_ja": "日本語での感想。",
+      "background": "Claude-researched Did You Know background paragraph. History, culture, context.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/alanandai/main/photos/[prefecture]/filename.jpg",
+          "caption": "Caption shown under the photo"
+        }
+      ],
+      "google_maps_url": "https://maps.app.goo.gl/...",
+      "website": "https://...",
+      "tags": ["tag1", "tag2"]
+    }
+  ]
+}
