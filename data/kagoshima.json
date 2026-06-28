@@ -2,8 +2,8 @@
   "prefecture": "Kagoshima",
   "prefecture_ja": "鹿児島県",
   "region": "Kyushu",
-  "our_story": "Our home prefecture — where the challenge begins. Alan lives here and Ai visits, so Kagoshima is our most intimately known stop. Buried in volcanic sand at Ibusuki, stood in silence at the Shimazu clan graves, and spent evenings going deep into Kagoshima shochu at Wasou. Home is never boring.",
-  "our_story_ja": "チャレンジのスタート地点、そして私たちのホーム。アランが暮らし、愛が訪れる鹿児島は最もよく知る場所。指宿では砂むしを体験し、福昌寺跡では島津家墓所に向き合い、和奏では本格焼酎の奥深さに浸りました。ホームは決して飽きない。",
+  "our_story": "Ai's home prefecture — where the challenge began. Ai was born here, so Kagoshima is our most intimately known stop, at least for a while. Buried in volcanic sand at Ibusuki, stood in silence at the Shimazu clan graves, and spent evenings going deep into Kagoshima shochu at Wasou. Home is never boring.",
+  "our_story_ja": "チャレンジのスタート地点にして、藍の故郷。藍が生まれ育った鹿児島は、私たちが最もよく知る場所です。指宿では砂むしを体験し、福昌寺跡では島津家墓所に静かに向き合い、和総では本格焼酎の奥深さに浸りました。ホームは決して飽きない。",
   "visits": [
     {
       "date": "2025-12",
@@ -86,7 +86,7 @@
       "id": "wasou-izakaya",
       "type": "ate",
       "name": "Wasou — Kagoshima Izakaya",
-      "name_ja": "和奏 — 鹿児島居酒屋",
+      "name_ja": "和総 — 鹿児島居酒屋",
       "location": "Tenmonkan area, Kagoshima City",
       "date": "2026-01-14",
       "rating": 5,
