@@ -2,9 +2,14 @@
   "prefecture": "Kagoshima",
   "prefecture_ja": "鹿児島県",
   "region": "Kyushu",
-  "our_story": "Ai's home prefecture — where the challenge began. Ai was born here, so Kagoshima is our most intimately known stop, at least for a while. Buried in volcanic sand at Ibusuki, stood in silence at the Shimazu clan graves, and spent evenings going deep into Kagoshima shochu at Wasou. Home is never boring.",
-  "our_story_ja": "チャレンジのスタート地点にして、藍の故郷。藍が生まれ育った鹿児島は、私たちが最もよく知る場所です。指宿では砂むしを体験し、福昌寺跡では島津家墓所に静かに向き合い、和総では本格焼酎の奥深さに浸りました。ホームは決して飽きない。",
+  "our_story": "Ai's home prefecture — where the challenge began. Our first trip in October 2024 set the tone: torisashi and oden at Wakana, Sakurajima brooding across the bay from Senganen garden, the quiet grandeur of Tsurumaru Castle. Later visits went deeper — buried in volcanic sand at Ibusuki, standing in silence at the Shimazu clan graves, and spending evenings lost in rare Kagoshima shochu at Wasou. Home is never boring.",
+  "our_story_ja": "チャレンジのスタート地点にして、藍の故郷。2024年10月の初訪問では、若菜で鳥刺しとおでんを楽しみ、仙巌園から桜島を眺め、鶴丸城の風格に圧倒されました。その後の訪問では、指宿の砂むし、福昌寺跡の島津家墓所、和総での希少な焼酎と、さらに深く鹿児島を知ることができました。ホームは決して飽きない。",
   "visits": [
+    {
+      "date": "2024-10",
+      "season": "autumn",
+      "hero_photo": null
+    },
     {
       "date": "2025-12",
       "season": "winter",
@@ -17,6 +22,197 @@
     }
   ],
   "entries": [
+    {
+      "id": "hotel-tenmonkan",
+      "type": "stayed",
+      "name": "Kagoshima Plaza Hotel Tenmonkan",
+      "name_ja": "かごしまプラザホテル天文館",
+      "location": "Tenmonkan, Kagoshima City",
+      "date": "2024-10-18",
+      "rating": 4,
+      "who_picked": "Alan",
+      "our_notes": "Our first ever hotel stay in Kagoshima — right in the heart of Tenmonkan. Perfectly located for exploring the tram network, the covered shopping arcade, and the izakayas around Tenmonkan. Nothing fancy, but comfortable and clean with that slightly retro Japanese business hotel feel.",
+      "our_notes_ja": "鹿児島初の宿泊は天文館のど真ん中。路面電車や天文館のアーケード、居酒屋街へのアクセスが抜群。ちょっとレトロなビジネスホテルの雰囲気ですが、清潔で快適でした。",
+      "background": "Tenmonkan (天文館) takes its name from the Meidōkan astronomical observatory built by 25th Shimazu lord Shigehide in 1779 — one of the earliest Western-style observatories in Japan. Today it is Kagoshima's main entertainment district, centred on a long covered arcade that stretches from the tram stop. The name is a constant reminder that Satsuma was unusually open to Western learning even in the Edo period.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/hotel-tenmonkan.jpg",
+          "caption": "かごしまプラザホテル天文館 — our first Kagoshima base"
+        }
+      ],
+
+      "tags": ["hotel", "Tenmonkan", "accommodation", "宿泊"],
+      "lat": 31.5889,
+      "lng": 130.5550
+    },
+    {
+      "id": "wakana-izakaya",
+      "type": "ate",
+      "name": "Wakana Izakaya",
+      "name_ja": "若菜 居酒屋",
+      "location": "Tenmonkan area, Kagoshima City",
+      "date": "2024-10-18",
+      "rating": 5,
+      "who_picked": "Ai",
+      "our_notes": "A proper Kagoshima izakaya near Tenmonkan. We had torisashi — raw chicken sashimi, seared lightly on the outside, served with ginger and lemon — a signature Kagoshima dish you won't find easily outside the prefecture. Also had excellent oden with daikon and chicken, beautifully presented on a blue-and-white Satsuma-style bowl. Kagoshima fish sashimi platter too, beautifully plated on a painted dish with wasabi.",
+      "our_notes_ja": "天文館近くの本格鹿児島居酒屋。鹿児島名物の「鳥刺し」は、表面だけ軽くあぶった生の鶏肉を生姜とレモンで。県外ではなかなか食べられない名物です。大根と鶏肉のおでんも白地に青絵の薩摩焼風の器で登場。鮮魚の刺盛りも絵付けの皿で美しく盛り付けられていました。",
+      "background": "Torisashi (鳥刺し) — raw chicken sashimi — is Kagoshima's most distinctive local food and largely unavailable elsewhere due to strict food safety laws. Kagoshima has special exemptions rooted in generations of experience with Satsuma Jidori (薩摩地鶏) — a robust local breed with naturally lower bacterial risk. The chickens are slaughtered and processed under strict hygiene protocols and served within hours. It's eaten with ginger, soy sauce and sesame oil. First-timers are often shocked; converts are evangelical.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/wakana-torisashi.jpg",
+          "caption": "鳥刺し (Torisashi) — raw Satsuma chicken sashimi with ginger and lemon"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/wakana-sashimi.jpg",
+          "caption": "Fresh fish sashimi platter on a painted Satsuma-style dish"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/wakana-oden.jpg",
+          "caption": "おでん — oden with daikon and chicken on a classic blue-and-white bowl"
+        }
+      ],
+      "tags": ["izakaya", "torisashi", "鳥刺し", "oden", "sashimi", "Kagoshima cuisine", "郷土料理"],
+      "lat": 31.5893,
+      "lng": 130.5563
+    },
+    {
+      "id": "tsurumaru-castle",
+      "type": "visited",
+      "name": "Tsurumaru Castle (Kagoshima Castle)",
+      "name_ja": "鶴丸城跡（鹿児島城）",
+      "location": "Shiroyama-cho, Kagoshima City",
+      "date": "2024-10-19",
+      "rating": 4,
+      "who_picked": "Alan",
+      "our_notes": "The restored Nishinotaisho Gate — all heavy timber and white plaster — makes a striking approach across the moat bridge. The castle itself was deliberately modest: the Shimazu clan said that the true castle was the mountains and the sea, not stone walls. A philosophy as confident as it is elegant. The moat had lotus growing in it.",
+      "our_notes_ja": "復元された西之丸大手御門は重厚な木材と白漆喰が美しく、石橋を渡る先にそびえる姿は圧巻。しかし島津家はあえて天守閣を持たなかった。「山を城とし、海を堀とす」という思想がいかにも薩摩らしい。お堀には蓮の葉が広がっていました。",
+      "background": "Kagoshima Castle (鹿児島城), also called Tsurumaru-jō (鶴丸城) for its flat, crane-like silhouette, was constructed in 1601 by Shimazu Iehisa and deliberately built without a keep (天守閣). The Shimazu believed natural geography — the mountains behind and sea in front — was sufficient defence. It was partially burned during the 1877 Satsuma Rebellion led by Saigo Takamori. The West Outer Gate (西之丸大手御門) was painstakingly reconstructed in 2020 using traditional techniques.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/tsurumaru-gate.jpg",
+          "caption": "西之丸大手御門 — the reconstructed main gate of Tsurumaru Castle"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/tsurumaru-alan.jpg",
+          "caption": "Alan at the castle gate — lotus moat and Sakurajima beyond"
+        }
+      ],
+      "website": "https://www.pref.kagoshima.jp/ab13/pr/kanko/shiroyama.html",
+      "tags": ["castle", "Shimazu", "history", "Satsuma", "Meiji", "鶴丸城", "歴史"],
+      "lat": 31.5924,
+      "lng": 130.5582
+    },
+    {
+      "id": "shiroyama",
+      "type": "visited",
+      "name": "Shiroyama — Terukuni Shrine & Viewpoint",
+      "name_ja": "城山 — 照国神社と展望台",
+      "location": "Shiroyama, Kagoshima City",
+      "date": "2024-10-19",
+      "rating": 5,
+      "who_picked": "Alan",
+      "our_notes": "Climbed Shiroyama hill to the famous observation deck — and despite grey clouds the view of the city with Sakurajima across the bay was extraordinary. You can feel why this place matters so much to Kagoshima people. On the way, visited Terukuni Shrine, the green-roofed sanctuary dedicated to Lord Nariakira, with its distinctive pink columns and Shimazu family crest lanterns. Rainy but perfect.",
+      "our_notes_ja": "城山の展望台まで登ると、雨曇りにもかかわらず桜島と鹿児島市内の絶景が広がっていました。この景色が鹿児島の人たちにとって特別なものだとよくわかります。途中で照国神社にも参拝。島津斉彬公を祀る緑の屋根と薄ピンクの柱が印象的な神社で、島津家の家紋入り提灯が並んでいました。雨でも最高！",
+      "background": "Shiroyama (城山 — 'Castle Mountain') was the final refuge of Saigo Takamori and his rebel samurai in the Satsuma Rebellion of 1877. Outnumbered and surrounded by Imperial troops, Saigo was mortally wounded (or died by seppuku — accounts differ) on 24 September 1877, ending the last major samurai uprising. Terukuni Shrine (照国神社) was established in 1863 to enshrine the spirit of Shimazu Nariakira (1809–1858), the visionary 28th lord of Satsuma who championed modernisation and influenced the Meiji Restoration.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/shiroyama-terukuni.jpg",
+          "caption": "照国神社 (Terukuni Jinja) — shrine of Lord Nariakira, with Shimazu crest lanterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/shiroyama-view.jpg",
+          "caption": "Sakurajima from Shiroyama — the classic Kagoshima view"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/shiroyama-alan.jpg",
+          "caption": "Alan at the Shiroyama viewpoint — Sakurajima behind"
+        }
+      ],
+      "tags": ["viewpoint", "shrine", "history", "Saigo Takamori", "Sakurajima", "城山", "照国神社", "絶景"],
+      "lat": 31.5973,
+      "lng": 130.5560
+    },
+    {
+      "id": "ichiniisan",
+      "type": "ate",
+      "name": "Ichiniisan — Kagoshima Shabu-Shabu",
+      "name_ja": "一二三 — 鹿児島しゃぶしゃぶ",
+      "location": "Tenmonkan area, Kagoshima City",
+      "date": "2024-10-19",
+      "rating": 5,
+      "who_picked": "Ai",
+      "our_notes": "A wonderful shabu-shabu set lunch — thin Kagoshima pork slices cooked at the table in a rich miso broth, served with a wooden box of accompaniments: vegetables, egg, tofu, seasoning packets. Also came with a small cup of somen noodles topped with colourful garnishes and a big bowl of pork miso soup. Ai thoroughly approved. Generous, warming, and exactly what you want on a rainy October day.",
+      "our_notes_ja": "鹿児島の薄切り豚肉を味噌ベースのスープでしゃぶしゃぶにするランチセット。木箱に野菜・卵・豆腐などが詰め込まれ、小さな素麺カップには色とりどりのトッピング、そして豚汁も付いてきます。雨の10月にぴったりの温かくてボリューム満点のランチでした。藍も大満足！",
+      "background": "Kagoshima is Japan's leading producer of pork (豚肉), and shabu-shabu using local Kagoshima black pork (鹿児島黒豚 / Kagoshima Kurobuta) is one of the prefecture's proudest culinary traditions. The breed was introduced to Satsuma via the Ryukyu Kingdom in the 16th century and selectively bred ever since. Kagoshima Kurobuta is prized for its rich marbling and sweetness, making it fundamentally different from standard pork — and locals will tell you this emphatically.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/ichiniisan-spread.jpg",
+          "caption": "一二三 shabu-shabu set — wooden box, miso broth, somen and pork miso soup"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/ichiniisan-ai.jpg",
+          "caption": "藍, thoroughly approving of lunch"
+        }
+      ],
+      "tags": ["shabu-shabu", "しゃぶしゃぶ", "pork", "黒豚", "lunch", "set meal", "定食"],
+      "lat": 31.5880,
+      "lng": 130.5545
+    },
+    {
+      "id": "senganen-garden",
+      "type": "visited",
+      "name": "Senganen Garden (Iso Teien)",
+      "name_ja": "仙巌園（磯庭園）",
+      "location": "Yoshino-cho, Kagoshima City",
+      "date": "2024-10-19",
+      "rating": 5,
+      "who_picked": "Alan",
+      "our_notes": "A stunning Shimazu clan garden right on the coast north of the city, with Sakurajima as its 'borrowed scenery' backdrop. Mossy stone pathways wind between enormous volcanic rocks and crystal-clear streams. The old villa corridor — tatami floors, shoji screens, paper lanterns — feels genuinely old and genuinely beautiful. The whole garden uses the bay as part of its composition. Unforgettable.",
+      "our_notes_ja": "桜島を借景にした島津家ゆかりの庭園。苔むした石畳と玄武岩、清流が織りなす景観は美しく、古い御殿の廊下は畳と障子と紙の行灯が並ぶ本物の雰囲気。庭全体が錦江湾を取り込んだ設計で、ため息が出るほどの美しさ。",
+      "background": "Senganen (仙巌園) was built in 1658 by the 19th lord Shimazu Mitsuhisa as a seaside retreat. The garden pioneered the concept of 'shakkei' (借景 — borrowed scenery), incorporating Sakurajima and Kinko Bay as living elements of the composition. The adjacent Shoko Shuseikan museum was Japan's first Western-style factory, built by Shimazu Nariakira in 1851 as part of his industrial modernisation programme — a direct ancestor of the Meiji-era industrialisation that transformed Japan.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-1.jpg",
+          "caption": "Stream and volcanic rock garden — Senganen"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-2.jpg",
+          "caption": "Mossy rocks and still water — Senganen"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-3.jpg",
+          "caption": "Garden and sea view — Senganen with Kinko Bay beyond"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-4.jpg",
+          "caption": "Stone bridge and sea — Senganen with Sakurajima behind"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-5.jpg",
+          "caption": "Alan and 藍 at Senganen garden"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-6.jpg",
+          "caption": "Alan and 藍 — Senganen with Kinko Bay"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-7.jpg",
+          "caption": "Alan and 藍 — Senganen"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-8.jpg",
+          "caption": "御殿の廊下 — tatami corridor of the Senganen villa"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kagoshima/senganen-9.jpg",
+          "caption": "御殿の廊下 — paper lanterns and shoji screens"
+        }
+      ],
+      "website": "https://www.senganen.jp/",
+      "tags": ["garden", "Shimazu", "shakkei", "仙巌園", "借景", "Sakurajima", "歴史"],
+      "lat": 31.6122,
+      "lng": 130.5679
+    },
     {
       "id": "ibusuki-saraku-sand-baths",
       "type": "experience",
