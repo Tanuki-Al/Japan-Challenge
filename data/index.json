@@ -1,13 +1,13 @@
 {
   "challenge": {
-    "start_date": "2026-01-01",
+    "start_date": "2024-10-18",
     "title": "Alan & Ai — 47 Prefecture Challenge",
     "description": "Our mission: visit every one of Japan's 47 prefectures together."
   },
   "visited": {
     "kagoshima": {
-      "visit_date": "2026-06",
-      "season": "summer",
+      "visit_date": "2024-10",
+      "season": "autumn",
       "hero_photo": null
     }
   }
