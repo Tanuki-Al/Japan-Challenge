@@ -9,6 +9,11 @@
       "visit_date": "2024-10",
       "season": "autumn",
       "hero_photo": null
+    },
+    "kanagawa": {
+      "visit_date": "2026-07",
+      "season": "summer",
+      "hero_photo": null
     }
   }
 }

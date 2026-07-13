@@ -1,0 +1,131 @@
+{
+  "prefecture": "Kanagawa",
+  "prefecture_ja": "神奈川県",
+  "region": "Kanto",
+  "our_story": "Kanagawa was a proper day-trip double-header: Kamakura in the morning for the Great Buddha and a languid lunch on the teppan at Tsukui, then out to Enoshima in the afternoon for the shrine, the cliffs, and a bowl of the freshest shirasu we've ever eaten. Two very different vibes — ancient shogunate capital and breezy island town — but both absolutely worth it.",
+  "our_story_ja": "神奈川では鎌倉と江の島をはしごしました。午前中は大仏と津久井でお好み焼きランチ、午後は江の島で江島神社と稚児ヶ淵の絶景、そして江之島亭の生釜揚げしらすいくら丼。歴史の街と海の島、それぞれ全然違う顔を持っていて、どちらも最高でした。",
+  "must_return_for": "Tsurugaoka Hachimangu and the hiking trails behind Kamakura — there's a whole medieval city to explore up in those hills.",
+  "visits": [
+    {
+      "date": "2026-07",
+      "season": "summer",
+      "hero_photo": null
+    }
+  ],
+  "entries": [
+    {
+      "id": "kotoku-in-great-buddha",
+      "type": "visited",
+      "name": "Kōtoku-in Great Buddha",
+      "name_ja": "高徳院 鎌倉大仏",
+      "location": "Hase, Kamakura",
+      "date": "2026-07-09",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "We'd both seen the Great Buddha in photos a thousand times, but nothing quite prepares you for standing in front of it. At 11 metres high and cast entirely in bronze, it sits in perfect stillness in the open air, unmoved by the centuries around it. There's something quietly magnificent about the fact that its housing — a great wooden hall — was swept away by typhoons and earthquakes in the 14th and 15th centuries, and the Buddha simply stayed put, sky above its head ever since. Standing there in the July heat with incense smoke curling past, it felt genuinely ancient and somehow intimate.",
+      "our_notes_ja": "写真で何度も見てきた鎌倉の大仏ですが、実際に目の前に立つと全然違いました。高さ11メートルの青銅の像が空の下にどっしりと座っていて、その存在感に思わず言葉を失いました。大仏殿は14〜15世紀の台風や地震で倒壊してしまったのに、大仏だけが何百年もそのまま残っているというのが、なんだか不思議で感動的で。線香の煙が漂う中、しばらくふたりで見上げていました。",
+      "background": "The Kamakura Daibutsu was cast in bronze in 1252, during the height of the Kamakura shogunate, reportedly funded by donations gathered by the monk Jōkō from ordinary people across the country. What's remarkable is that it was originally housed inside a massive wooden hall — but that hall was destroyed by typhoons in 1334 and 1369, then a catastrophic tsunami in 1498 swept away whatever remained of the structure. The Buddha has sat in the open air ever since, enduring over seven centuries of Kanagawa weather without shelter. Unlike Nara's famous Daibutsu, which was recast multiple times, the Kamakura statue is largely its original 13th-century casting — and you can enter the hollow interior through small doors in its back. It weighs 121 tonnes and was designated a National Treasure in 1958.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kanagawa/great-buddha.jpg",
+          "caption": "The Kamakura Daibutsu — open to the sky since 1498"
+        }
+      ],
+      "website": "https://www.kotoku-in.jp/en/",
+      "tags": ["temple", "Kamakura", "仏教", "国宝", "鎌倉時代"],
+      "lat": 35.3167,
+      "lng": 139.5352
+    },
+    {
+      "id": "tsukui-okonomiyaki",
+      "type": "ate",
+      "name": "Okonomiyaki Tsukui",
+      "name_ja": "お好み焼き 津久井",
+      "location": "Onarimachi, Kamakura",
+      "date": "2026-07-09",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "Tucked in a beautiful old machiya just a couple of minutes from Kamakura Station, Tsukui is the kind of place you could happily lose an afternoon in. We sat at the iron teppan and cooked our own okonomiyaki and yakisoba — watching them sizzle and bubble while nursing cold beers. The building is gorgeous: tatami floors, shoji screens, the smell of batter and Worcestershire sauce. Ai handled the spatula far more confidently than Alan did, but both pancakes made it off the griddle in one piece.",
+      "our_notes_ja": "鎌倉駅から歩いて2分ほどの古い町屋を改装した素敵なお店でした。鉄板を囲んでお好み焼きと焼きそばを自分で焼くスタイルで、畳の雰囲気とウスターソースの香りが昭和っぽくてよかったです。アランは最初ひっくり返すのをためらっていましたが（笑）、なんとか無事に焼けました。冷たいビールと一緒にのんびり楽しんだ時間が大好きです。",
+      "background": "Okonomiyaki Tsukui (お好み焼き 津久井) has been serving Kamakura's locals and visitors for decades from its landmark traditional machiya building in Onarimachi, a short walk from the station. Okonomiyaki itself — the 'cook-what-you-like' savoury pancake — has roots in the wartime 一銭洋食 (issen yoshoku) street food of the 1930s and 40s, when vendors cooked thin wheat-paste pancakes on hotplates for a single coin. The Kanto style served here mixes all ingredients together before cooking, unlike the layered Hiroshima-style. Tsukui's old wooden interior, with tatami seating and a tranquil garden outlook, makes it one of the most atmospheric settings in Kamakura for a leisurely lunch.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kanagawa/tsukui-teppan.jpg",
+          "caption": "Okonomiyaki and yakisoba on the teppan — Ai in the chief's seat"
+        }
+      ],
+      "website": "https://www.291.co.jp/",
+      "tags": ["お好み焼き", "焼きそば", "Kamakura", "teppan", "鎌倉"],
+      "lat": 35.3210,
+      "lng": 139.5466
+    },
+    {
+      "id": "enoshima-shrine",
+      "type": "visited",
+      "name": "Enoshima Shrine",
+      "name_ja": "江島神社",
+      "location": "Enoshima, Fujisawa",
+      "date": "2026-07-09",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "After the Benzaiten Nakamise shopping street leading up from the bridge, the shrine complex itself felt surprisingly peaceful. The three sub-shrines — Hetsu-miya, Nakatsu-miya, and Okutsu-miya — are spread across the island, each with its own atmosphere. We stopped at Hetsu-miya with its beautiful layered roof and offered a prayer. The blend of Buddhist and Shinto elements woven through the site felt genuinely ancient and layered in the best possible way.",
+      "our_notes_ja": "弁財天仲見世通りを抜けてたどり着いた江島神社は、境内に入ると観光地の喧騒とは別に静かな空気が漂っていました。辺津宮・中津宮・奥津宮と三つの社が点在していて、島そのものが御神体のような感覚です。弁財天は芸術・音楽・知恵の女神で、この島はその力が宿る場所として古くから信仰されてきました。藍はここで縁結びのお守りを買いました。",
+      "background": "Enoshima Shrine's origins stretch back to 552 CE, when the island is said to have risen from the sea on the orders of Emperor Kinmei, called forth as a home for the goddess Benzaiten. According to the Enoshima Engi chronicle compiled in 1047, Benzaiten descended from the heavens on a cloud of five colours and the island emerged from Sagami Bay in response. The shrine became especially powerful during the Kamakura period — Minamoto no Yoritomo himself visited in 1182 to pray for victory against the Taira. Benzaiten is one of Japan's Seven Lucky Gods and the only female among them, governing music, art, eloquence, and flowing water. The three sub-shrines were formally separated from their Buddhist counterparts only in the Meiji era's forced separation of Shinto and Buddhism — before that, they had coexisted for over a thousand years.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kanagawa/enoshima-shrine.jpg",
+          "caption": "Hetsu-miya — the first of Enoshima Shrine's three halls"
+        }
+      ],
+      "website": "https://enoshimajinja.or.jp/",
+      "tags": ["shrine", "Enoshima", "神社", "弁財天", "七福神"],
+      "lat": 35.2992,
+      "lng": 139.4817
+    },
+    {
+      "id": "enoshima-cliffs",
+      "type": "visited",
+      "name": "Enoshima Cliffs (Chigogafuchi)",
+      "name_ja": "稚児ヶ淵（江の島）",
+      "location": "Enoshima, Fujisawa",
+      "date": "2026-07-09",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "The path down the western side of Enoshima to the rocky shore is one of those unexpected treats — you round a corner through lush subtropical vegetation and suddenly the island just drops away beneath you. Looking out between two cliff faces towards the open Pacific, with waves crashing on the rocks far below, you could just make out what might have been Izu Oshima shimmering on the horizon. The contrast between the busy shrine-town above and this wild, windswept coast below was striking.",
+      "our_notes_ja": "江の島の西端、稚児ヶ淵へ降りていく道で見た景色が忘れられません。うっそうとした緑を抜けると、突然切り立った崖の間から太平洋が広がって、はるか下の岩場に波が打ち寄せているんです。水平線の向こうには伊豆大島らしき島影も見えて、日常から遠くに来たような気分でした。江の島ってただの観光地じゃなく、こういう野性的な顔もあるんだな、と改めて感じました。",
+      "background": "The western tip of Enoshima drops sharply to a rocky tidal platform called Chigogafuchi (稚児ヶ淵), named after a tragic medieval legend. A young acolyte (chigo) of Gokurakuji temple in Kamakura fell in love with a woman from the village of Katase — but believing she had drowned, he threw himself into the sea from these very cliffs. The dramatic geology is formed from the same tuff and compressed sedimentary rock as the rest of the Miura Peninsula's coastline, sculpted over millennia by Pacific wave action. On clear days the view extends south to Izu Oshima, and on exceptional winter days you can see Mount Fuji rising behind you over the Enoshima Sea Candle. The rocky shore below is a popular spot for low-tide fishing and collecting the turban snails (sazae) that also feature on Enoshima's menus.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kanagawa/enoshima-cliffs.jpg",
+          "caption": "Western cliffs of Enoshima — open Pacific and a distant island on the horizon"
+        }
+      ],
+      "tags": ["nature", "Enoshima", "clifftop", "稚児ヶ淵", "海"],
+      "lat": 35.2980,
+      "lng": 139.4779
+    },
+    {
+      "id": "enoshimatei-shirasu-don",
+      "type": "ate",
+      "name": "Enoshimatei — Shirasu Don",
+      "name_ja": "江之島亭 — 生釜揚げしらすいくら丼",
+      "location": "Enoshima, Fujisawa",
+      "date": "2026-07-09",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "Enoshima's signature ingredient is shirasu — fresh whitebait pulled from Sagami Bay — and Enoshimatei is one of the island's best places to eat it. We ordered the 生釜揚げしらすいくら丼: a bowl piled with freshly boiled whitebait, salmon roe, sea urchin, and shiso over rice, served with a small pitcher of ponzu. The shirasu was impossibly delicate and sweet — completely unlike anything sold dried. We sat in the lacquered dining room and lingered over every last mouthful.",
+      "our_notes_ja": "江の島といえばしらすですが、江之島亭の生釜揚げしらすいくら丼は別格でした。器の上に新鮮な釜揚げしらすがたっぷり、その上にいくらとうに、紫蘇の葉が添えられていて見た目も華やか。ポン酢をかけながら食べると、しらすのやさしい甘みといくらのプチプチ感が絶妙に合って、もうひと口もうひと口と止まらなくなりました。1909年創業の老舗ならではの上品な漆器と落ち着いた雰囲気も最高でした。",
+      "background": "Shirasu (しらす) — tiny baby whitebait, mostly young Japanese sardines and anchovies — has been the defining taste of the Enoshima and Shonan coast for centuries, with the fishing grounds of Sagami Bay considered among Japan's finest. Local boats haul in fresh shirasu every morning (except during the closed season from mid-January to mid-March), and the difference between fresh釜揚げ and dried shirasu is remarkable: the former is delicate and almost sweet, the latter saltier and more intense. Enoshimatei itself was founded in 1909 and is one of the island's oldest surviving restaurants, with panoramic terrace views over Sagami Bay. The '生釜揚げ' designation is key: it means the shirasu was boiled in seawater moments after landing, preserving a freshness and flavour that the dried version simply cannot match.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/kanagawa/shirasu-don.jpg",
+          "caption": "生釜揚げしらすいくら丼 — fresh whitebait, salmon roe, sea urchin"
+        }
+      ],
+      "website": "https://enoshimatei.com/",
+      "tags": ["しらす", "海鮮丼", "Enoshima", "seafood", "江の島"],
+      "lat": 35.2983,
+      "lng": 139.4798
+    }
+  ]
+}
