@@ -621,7 +621,7 @@ function buildCard(e) {
     const multi = photos.length > 1;
     const dots = multi ? `<div class="photo-dots">${photos.map((_,i) => `<button class="photo-dot${i===0?' active':''}"></button>`).join('')}</div>` : '';
     const navs = multi ? `<button class="photo-nav prev">‹</button><button class="photo-nav next">›</button>` : '';
-    photoHtml = `<div class="card-photo-wrap"${multi?` data-photos='${JSON.stringify(photos)}' data-idx="0"`:''}><div class="card-photo-img-area"><img data-src="${firstPhoto.url}" alt="${firstPhoto.caption||e.name}"></div><div class="card-photo-caption">${firstPhoto.caption||''}</div>${navs}${dots}</div>`;
+    photoHtml = `<div class="card-photo-wrap"${multi?` data-photos='${JSON.stringify(photos).replace(/'/g,"&#39;")}' data-idx="0"`:''}><div class="card-photo-img-area"><img data-src="${firstPhoto.url}" alt="${firstPhoto.caption||e.name}"></div><div class="card-photo-caption">${firstPhoto.caption||''}</div>${navs}${dots}</div>`;
   } else {
     const ph = e.type==='ate'?'🍜':e.type==='visited'?'🗺️':e.type==='stayed'?'🏨':'✨';
     photoHtml = `<div class="card-photo-wrap"><div class="card-photo-placeholder">${ph}<span>No photo yet</span></div></div>`;
