@@ -1,0 +1,163 @@
+{
+  "prefecture": "Ehime",
+  "prefecture_ja": "愛媛県",
+  "region": "Shikoku",
+  "our_story": "Ehime felt like the quiet heart of Shikoku — places that still carry their Edo-period bones without making a fuss about it. We worked our way from the wax-merchant streets of Uchiko through the gorge onsen at Oyabu, then west along a narrowing peninsula until Japan simply ran out. Standing at the lighthouse at Sada Misaki with open water in every direction was one of those moments that stays with you.",
+  "our_story_ja": "愛媛は四国の静かな奥座敷という感じでした。内子の白壁の商家街に始まり、小藪温泉の渓谷に浸かり、細長い佐田岬半島をどこまでも西へ走って、ついには日本の端っこまでたどり着いてしまいました。観光地らしさがなくて、それがよかった。",
+  "must_return_for": "Matsuyama and Dogo Onsen — Japan's oldest hot spring resort, just a tram ride from the castle. And the Shimanami Kaidō cycling road to Hiroshima.",
+  "visits": [
+    {
+      "date": "2025-02",
+      "season": "winter",
+      "hero_photo": null
+    }
+  ],
+  "entries": [
+    {
+      "id": "uchiko-yokaichi",
+      "type": "visited",
+      "name": "Uchiko — Yokaichi Historic District",
+      "name_ja": "内子 — 八日市・護国地区",
+      "location": "Yokaichi, Uchiko",
+      "date": "2025-02-26",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "Uchiko surprised us completely — we expected a pleasant old street and got something that felt genuinely untouched. The 600-metre stretch of Yokaichi is lined with merchant houses whose ochre and white plaster walls and darkened timber lattices look exactly as they did in the Meiji era. The wax merchant's Kamihaga Residence, the old kabuki theatre, the smell of aged timber — it all adds up to something rare. One of those places where you forget what year it is.",
+      "our_notes_ja": "内子は良い意味で予想を裏切ってくれました。白壁と土壁の商家が600メートルにわたって続く八日市護国地区は、明治時代からそのままのような佇まいで、観光地という感じがほとんどありませんでした。上芳我邸の木蝋の展示や、大正時代の芝居小屋・内子座を見ながら歩いていると、時間がゆっくり流れているようでした。",
+      "background": "Uchiko built its wealth on wax — not beeswax, but a refined vegetable wax pressed from the berries of the haze tree (sumac), used in candles, cosmetics, and traditional Japanese lacquerwork. By the late Edo period the Honhaga family had made Uchiko's wax famous across Japan, and in 1900 they even exhibited at the Paris World Exposition. The 600-metre Yokaichi historic street preserves some 93 buildings from the Edo, Meiji, and Taisho periods, including the Kamihaga Residence (a superbly restored wax merchant's house) and the Uchiko-za theatre, built in 1916 for kabuki and bunraku puppet performances. The district was designated an Important Preservation District for Historic Buildings in 1982 — one of the earliest in Japan to receive that status.",
+      "photos": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Yokaichi%2C_Uchiko%27s_traditional_area_%286453954293%29.jpg",
+          "caption": "The Yokaichi historic street — 600 metres of Edo and Meiji merchant houses"
+        }
+      ],
+      "website": "https://uchikogenic.com/en/",
+      "tags": ["historic district", "Uchiko", "八日市護国", "木蝋", "伝統的建造物"],
+      "lat": 33.5428,
+      "lng": 132.6394
+    },
+    {
+      "id": "oyabu-onsen-ryokan",
+      "type": "stayed",
+      "name": "Oyabu Onsen Ryokan",
+      "name_ja": "小藪温泉",
+      "location": "Oyabu, Ozu",
+      "date": "2025-02-26",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "You approach Oyabu through a small red torii gate and a mossy gorge path with seven waterfalls — and then the three-storey wooden ryokan appears at the end of it like something from a Miyazaki film. The building dates from the Taisho era and has barely changed since: narrow corridors, sliding fusuma screens, a communal bath that smells of sulphur and cedar. The kaiseki dinner featured local river fish cooked whole over charcoal. One of the most atmospheric places we've stayed in Japan.",
+      "our_notes_ja": "赤い鳥居と苔むした渓谷道を進んでいくと、七つの滝の先に大正時代の三階建て木造旅館がどーんと現れます。まるでジブリの世界。廊下も欄間も昔のまま残っていて、共同浴場では硫黄とヒノキの香りが混じり合っていました。夕食の懐石は地元の川魚の炭火焼きが出て、名前は分からないけど絶品でした。これだけの雰囲気の宿はなかなかないと思います。",
+      "background": "The hot spring at Oyabu was discovered during the Meiji period, and the ryokan building dates from the Taisho era (1912–1926), when the spring gained wider fame. The approach — through a narrow gorge shaded by ancient cryptomeria, past a series of waterfalls and small vermilion bridges — is almost theatrical in its build-up. The spring water is a mildly sulphurous sodium bicarbonate type, long reputed locally for skin conditions. Unusually for a rural onsen, Oyabu has remained a single-property destination rather than developing into a larger resort complex, which has preserved its eerily intact Taisho atmosphere. It sits on Route 197 heading south from Ozu through the Hiji River valley, on the road that eventually winds down to Uwajima.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/oyabu-onsen.jpg",
+          "caption": "Oyabu Onsen Ryokan — Taisho-era wooden inn deep in the gorge"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/oyabu-onsen-fish.jpg",
+          "caption": "Kaiseki dinner at Oyabu — river fish, charcoal-grilled"
+        }
+      ],
+      "website": "https://en.japantravel.com/ehime/experience-old-japan-at-oyabu-onsen/892",
+      "tags": ["onsen", "ryokan", "Ozu", "温泉", "大正建築"],
+      "lat": 33.4279,
+      "lng": 132.5601
+    },
+    {
+      "id": "ozu-castle-town",
+      "type": "visited",
+      "name": "Ozu — Castle Town & Garyu Sanso",
+      "name_ja": "大洲 — 城下町と臥龍山荘",
+      "location": "Ozu",
+      "date": "2025-02-26",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "Ozu calls itself the 'Little Kyoto of Iyo Province' and for once that's not an empty boast. The reconstructed castle sits perfectly above a bend in the Hiji River, and the old merchant quarter below still has its Edo-period bones intact. We walked down from the castle to Garyu Sanso — a private merchant's villa built on a wooded riverbank — and the combination of military stronghold above and refined private aesthetics below felt very Meiji Japan: wealth, ambition, and a certain nostalgic elegance.",
+      "our_notes_ja": "大洲は「伊予の小京都」と呼ばれていますが、そう言われるのも納得の街です。肱川の曲がりにそびえる天守は重厚で、城下の古い町並みも残っています。お城から川沿いに歩いて臥龍山荘へ。豪商が私財を投じて建てた数寄屋造りの別邸で、庭から見る肱川の眺めが格別でした。城と数寄屋、どちらも明治という時代の精神が宿っていました。",
+      "background": "Ozu Castle's origins date to the 14th century, when a local warlord built a fort on this rocky bluff above the Hiji River. The keep was substantially rebuilt in the early Edo period by the famed castle architect Tōdō Takatora, then passed to the Kato clan who governed Ozu until the Meiji Restoration. After falling into disrepair and demolition in the Meiji era, the castle was painstakingly reconstructed in 2004 using Edo-period building plans, a surviving wooden scale model, and traditional timber-frame techniques — a decade-long project driven by local fundraising. Garyu Sanso, a short walk downstream, was built between 1892 and 1907 by wealthy merchant Torajiro Kōchi, who hired master craftsmen from Kyoto to create shoin-style teahouses and garden pavilions on the cliffs above the river. Its name — 'resting dragon' — refers to the sinuous curve of the Hiji River visible from the viewing pavilion.",
+      "photos": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Ozu_castle_from_west.JPG",
+          "caption": "Ozu Castle above the Hiji River — rebuilt in 2004 using traditional Edo-period methods"
+        }
+      ],
+      "website": "https://jp.visitozu.com/story/history?wovn=en",
+      "tags": ["castle", "Ozu", "城下町", "大洲城", "臥龍山荘"],
+      "lat": 33.5066,
+      "lng": 132.5440
+    },
+    {
+      "id": "sada-misaki-cape",
+      "type": "visited",
+      "name": "Cape Sada Misaki",
+      "name_ja": "佐田岬",
+      "location": "Ikata, Nishiuwa",
+      "date": "2025-02-26",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "Japan just keeps going west — and then it runs out here. The Sadamisaki Peninsula is Japan's longest and narrowest, a thin spine of rock barely wide enough for the road in places, with the Seto Inland Sea on one side and the Uwa Sea on the other. We drove the whole length to the cape and walked out to the lighthouse with open water in every direction. Wind turbines line the ridgeline behind you. On the other side of the strait you could just make out the coast of Kyushu. It felt genuinely remote, which is not easy to achieve in Japan.",
+      "our_notes_ja": "日本はどこまでも西に続く――でも、ここで終わります。佐田岬半島は日本一細長い半島で、道路がようやく一本通るくらいの幅しかなく、右に瀬戸内海、左に宇和海が広がっています。先端まで車で走って灯台まで歩き、四方が海という場所に立ちました。背後には風力発電の風車が並び、海峡の向こうには九州の山影も。日本の果てまで来てしまった気分でした。",
+      "background": "The Sadamisaki Peninsula stretches 40 kilometres into the Bungo Channel and is the westernmost point of Shikoku. Its strategic position made it a military priority: during World War II, a fortress known as Toyono Battery was carved into the cliffs, with tunnels and gun emplacements designed to defend the straits against naval attack — some of which can still be visited today. The peninsula's sheltered coves were also used to train pilots of kaitens (manned torpedoes) and other special-attack craft. The cape has been a gateway between Shikoku and Kyushu for centuries: ferries from nearby Misaki port still cross to Saganoseki in Oita Prefecture, a maritime route that predates the modern highway by many hundreds of years. The lighthouse at the tip was built in 1918 and remains one of Japan's most remote staffed light stations.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/cape-misaki.jpg",
+          "caption": "Cape Sada Misaki — land's end, looking out into the Bungo Channel"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Sadamisaki_peninsula.JPG",
+          "caption": "The Sadamisaki Peninsula — Japan's longest and narrowest, reaching into the Bungo Channel"
+        }
+      ],
+      "tags": ["cape", "peninsula", "Ikata", "佐田岬", "西端"],
+      "lat": 33.3414,
+      "lng": 132.0161
+    },
+    {
+      "id": "ebisuya-ryokan-ikata",
+      "type": "stayed",
+      "name": "Ebisuya Ryokan",
+      "name_ja": "恵比寿屋旅館",
+      "location": "Misaki, Ikata",
+      "date": "2025-02-26",
+      "rating": 5,
+      "who_picked": null,
+      "our_notes": "Ebisuya is a small ryokan in the fishing port of Misaki — the kind of place that caters to Shikoku pilgrims and local fishermen rather than tourists, which made the welcome all the warmer. The dinner was a proper kaiseki procession: grilled white fish on a hand-thrown ceramic dish, a lacquer bento of tamagoyaki, simmered tofu, hijiki, and agedashi; a bowl of freshly minced fish tataki in clear dashi with yuzu; a stunning sashimi board of tuna, amberjack, mackerel, sea bream, and squid straight from the Uwa Sea; chawanmushi topped with uni and seaweed; and finally a whole sazae (turban snail) roasted in its shell. We lost count of the courses. The private onsen at the end of all that was essential.",
+      "our_notes_ja": "恵比寿屋は佐田岬半島の三崎漁港のそばにある小さな旅館です。お遍路さんや漁師さんが泊まるような宿で、観光客向けじゃないぶんかえって温かく迎えてもらいました。夕食は本格的な懐石で、白身魚の塩焼き、玉子焼き・お豆腐・ひじき・揚げ出し豆腐の四品盛り、新鮮な魚のたたきの椀、まぐろ・ブリ・サバ・タイ・イカのお刺身、うにの茶碗蒸し、そしてサザエの壺焼きまで。宇和海の恵みを全部いただいたような気分でした。最後に貸し切り風呂でぼんやりするのが幸せすぎました。",
+      "background": "Ebisuya Ryokan sits in Misaki, the small port town that has served as a crossing point between Shikoku and Kyushu for centuries. The town falls on the Shikoku Pilgrimage route near Temples 43 and 44, making it a natural rest stop for henro (pilgrims) walking the 88-temple circuit. The Uwa Sea around the Sadamisaki Peninsula is one of Shikoku's richest fishing grounds, known for yellowtail (buri), sea bream (tai), and shellfish — including the Ehime pearl oysters that have made this coastline internationally famous. Sazae (turban snail) roasted in the shell is a classic Ehime coastal dish, the smoky-briny flavour amplified by the residual liquid in the shell. Staying this far west puts you in a quite different Japan from the castle towns and hot spring resorts of the interior: a working maritime coastline that has changed relatively little in character over the past century.",
+      "photos": [
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-ryokan.jpg",
+          "caption": "Ebisuya Ryokan, Misaki port — a fisherman's inn at the end of the peninsula"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-grilled-fish.jpg",
+          "caption": "Salt-grilled white fish — kaiseki first course"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-bento.jpg",
+          "caption": "Four-dish lacquer bento: tamagoyaki, simmered tofu, hijiki, agedashi"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-tataki.jpg",
+          "caption": "Fresh fish tataki in clear dashi, yuzu and shiso"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-sashimi.jpg",
+          "caption": "Uwa Sea sashimi platter — tuna, amberjack, mackerel, sea bream, squid"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-chawanmushi.jpg",
+          "caption": "Chawanmushi with sea urchin and seaweed"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Tanuki-Al/Japan-Challenge/main/photos/ehime/ebisuya-sazae.jpg",
+          "caption": "Sazae (turban snail) roasted in the shell — a classic Ehime coast dish"
+        }
+      ],
+      "website": "https://min88.jp/inn/en/11115/",
+      "tags": ["ryokan", "Ikata", "seafood", "遍路", "宇和海"],
+      "lat": 33.3871,
+      "lng": 132.1839
+    }
+  ]
+}
